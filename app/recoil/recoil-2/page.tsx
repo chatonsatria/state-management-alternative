@@ -2,7 +2,7 @@
 
 import { useRecoilValue } from "recoil";
 import Link from "next/link";
-import { baseUserData } from "../state";
+import { baseUserData } from "@/state/recoil/recoil";
 
 const Recoil2 = () => {
   const dataAuth = useRecoilValue(baseUserData);

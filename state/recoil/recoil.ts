@@ -1,4 +1,5 @@
 import { atom, selector } from "recoil";
+import { IUserCredential, IUserData } from "../types";
 
 // login data state
 export const userCredential = atom({
@@ -36,20 +37,3 @@ export const baseUserData = selector({
     return userData;
   },
 });
-
-export interface IUserData {
-  id: number;
-  username: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  gender: string;
-  image: string;
-  token: string;
-  refreshToken: string;
-}
-
-export interface IUserCredential {
-  username: string;
-  password: string;
-}

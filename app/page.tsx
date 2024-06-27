@@ -27,6 +27,11 @@ export default function Home() {
           Recoil
         </button>
       </Link>
+      <Link href="/mobx">
+        <button className="px-4 py-2 w-[100px] rounded border bg-blue-600 text-white">
+          MobX
+        </button>
+      </Link>
     </main>
   );
 }

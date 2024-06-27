@@ -1,17 +1,16 @@
 "use client";
 
-import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import { atom, selector, useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import {
-  IUserCredential,
-  IUserData,
   authState,
   baseUserData,
   userCredSelect,
   userCredential,
-} from "./state";
+} from "@/state/recoil/recoil";
+import { IUserCredential, IUserData } from "@/state/types";
+import { Login } from "@/state/api";
 
 const Recoil = () => {
   return (
@@ -41,30 +40,9 @@ function LoginButton() {
   const [credential, setCredential] =
     useRecoilState<IUserCredential>(userCredential);
 
-  // feth data
-  const fetch = async () => {
-    const body = {
-      username: credential.username,
-      password: credential.password,
-      expiresInMins: 30, // optional, defaults to 60
-    };
-    try {
-      const resp = await axios.post("https://dummyjson.com/auth/login", body, {
-        headers: { "Content-Type": "application/json" },
-      });
-      if (resp.status == 200) {
-        console.log("data res", resp);
-        return resp?.data;
-      }
-    } catch (error) {
-      console.log("error", error);
-      return null;
-    }
-  };
-
   const onSubmit = async (event: any) => {
     event.preventDefault();
-    const dataUser = await fetch();
+    const dataUser = await Login(credential.username, credential.password);
     setAuth(dataUser);
   };
 
