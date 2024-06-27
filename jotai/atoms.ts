@@ -4,7 +4,11 @@ import { atomWithStorage } from "jotai/utils";
 // atom with storage / local storage
 export const authAtom = atomWithStorage(
   "auth",
-  JSON.parse(localStorage.getItem("auth")!) || { auth: false, name: "chaton" },
+  (typeof window !== "undefined" &&
+    JSON.parse(localStorage.getItem("auth") || "null")) || {
+    auth: false,
+    name: "chaton",
+  },
   undefined,
   {
     getOnInit: true,
