@@ -1,6 +1,6 @@
 "use client";
 
-import { authAtom, homeAtom } from "@/jotai/atoms";
+import { authAtom, homeAtom } from "@/state/jotai/atoms";
 import { useAtom } from "jotai";
 import Link from "next/link";
 
@@ -13,6 +13,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Link href="/jotai">Jotai</Link>
+      <Link href="/zustand">Zustand</Link>
     </main>
   );
 }

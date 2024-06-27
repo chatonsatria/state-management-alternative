@@ -1,7 +1,7 @@
 "use client";
 
-import JotaiProvider from "@/component/jotai/provider";
-import { authAtom, homeAtom } from "@/jotai/atoms";
+import JotaiProvider from "@/state/jotai/provider";
+import { authAtom, homeAtom } from "@/state/jotai/atoms";
 import { useAtom } from "jotai";
 import { RESET } from "jotai/utils";
 import Link from "next/link";
