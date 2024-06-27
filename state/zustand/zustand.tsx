@@ -23,7 +23,7 @@ export type Action = {
 };
 
 // Create your store, which includes both state and (optionally) actions
-export const useBear2 = create<State & Action>((set) => ({
+export const useBears = create<State & Action>((set) => ({
   bears: 0,
   dodos: 0,
   addBears: () => set((state: State) => ({ bears: state.bears + 1 })),
